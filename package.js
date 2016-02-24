@@ -1,10 +1,10 @@
 Package.describe({
   name: 'new3rs:twitter',
-  version: '0.0.4',
+  version: '0.0.5',
   // Brief, one-line summary of the package.
   summary: 'a synchronous wrapper of NPM twitter',
   // URL to the Git repository containing the source code for this package.
-  git: 'git@github.com:y-ich/meteor-twitter.git',
+  git: 'https://github.com/new3Rs/meteor-twitter.git',
   // By default, Meteor will default to using README.md for documentation.
   // To avoid submitting documentation, set this field to null.
   documentation: 'README.md'
