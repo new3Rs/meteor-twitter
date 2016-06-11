@@ -48,8 +48,9 @@ _Twitter::__request = (method, path, params, callback) ->
                 catch parseError
                     callback new Error('Status Code: ' + response.statusCode), data, response
                     return
-            console.log data
-            if typeof data.errors isnt 'undefined'
+            if typeof data.error isnt 'undefined'
+                callback data.error, data, response
+            else if typeof data.errors isnt 'undefined'
                 callback data.errors, data, response
             else if response.statusCode isnt 200
                 callback new Error('Status Code: ' + response.statusCode), data, response
