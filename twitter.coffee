@@ -47,13 +47,15 @@ _Twitter::__request = (method, path, params, callback) ->
                     data = JSON.parse data
                 catch parseError
                     callback new Error('Status Code: ' + response.statusCode), data, response
-
+                    return
+            console.log data
             if typeof data.errors isnt 'undefined'
                 callback data.errors, data, response
             else if response.statusCode isnt 200
                 callback new Error('Status Code: ' + response.statusCode), data, response
             else
                 callback null, data, response
+            return
     return
 
 class Parser
@@ -73,7 +75,7 @@ class Twitter
             params = {}
         @client[method] url, params, (error, data, response) ->
             if error?
-                callback error, null
+                callback error, data
             else
                 callback null, data
             return
