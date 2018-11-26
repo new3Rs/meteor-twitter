@@ -1,6 +1,6 @@
 Package.describe({
   name: 'new3rs:twitter',
-  version: '0.0.9',
+  version: '1.1.0',
   // Brief, one-line summary of the package.
   summary: 'a synchronous wrapper of NPM twitter',
   // URL to the Git repository containing the source code for this package.
@@ -11,12 +11,12 @@ Package.describe({
 });
 
 Npm.depends({
-  "twitter": "1.2.5"
+  "twitter": "git+https://github.com/y-ich/node-twitter"
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.0.4.2');
-  api.use('coffeescript')
+  api.versionsFrom('1.6.1');
+  api.use('coffeescript@2.0.3')
   api.addFiles('twitter.coffee', 'server');
   api.export('Twitter', 'server');
 });
